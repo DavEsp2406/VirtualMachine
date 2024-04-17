@@ -4,12 +4,10 @@ public class OperandStack {
 	final int MAX_STACK = 10;
 	private int[] stack;
 	private int num_elems;
-	public int value;
 
 	public OperandStack() {
 		this.stack = new int[MAX_STACK];
 		this.num_elems = 0;
-		this.value = 0;
 	}
 
 	public String toString() {
@@ -21,27 +19,51 @@ public class OperandStack {
 	}
 
 	public boolean isEmpty() {
-		if (this.num_elems == 0) {
-			return true;
-		} else {
+		return this.num_elems == 0;
+	}
+
+	public boolean push(int n) {
+		if (this.num_elems >= this.MAX_STACK) {
 			return false;
+		}else {
+			this.stack[this.num_elems] = n;
+			this.num_elems++;
+			return true;	
 		}
 	}
-
-	public void push(int n) {
-		this.stack[this.num_elems] = n;
+	
+	
+	public void load(int _pos) {
+		Memory mm = new Memory();
+		this.stack[this.num_elems] = mm.read(_pos);;
 		this.num_elems++;
 	}
-
+	/**
+	 * Metodo que devuelve la ultima posicion de la pila y la elimina, si 
+	 * no hay nada devuelve -1
+	 * @return
+	 */
 	public int pop() {
-		this.value = this.stack[this.num_elems - 1];
-		this.stack[this.num_elems - 1] = 0;
-		this.num_elems--;
-		return this.value;
+		int lastPos;
+		
+		if(this.isEmpty() == true) {
+			return -1;
+		}else {
+			lastPos = this.stack[this.num_elems - 1];
+			this.num_elems--;
+			return lastPos;
+		}
 	}
-	
-	public int peek() {
-		this.value = this.stack[this.num_elems - 1];	
-		return this.value;
+	/**
+	 * Metodo que devuelve la ultima posicion de la pila, si no hay nada devuelve -1
+	 * @return
+	 */
+	public int getCima() {
+		if(this.isEmpty() == true) {
+			return -1;
+		}else {
+			return this.stack[this.num_elems - 1];
+		}
+		
 	}
 }
