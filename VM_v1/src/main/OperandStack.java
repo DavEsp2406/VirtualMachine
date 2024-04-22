@@ -13,7 +13,7 @@ public class OperandStack {
 	public String toString() {
 		String chain = "";
 		for (int i = 0; i < this.num_elems; i++) {
-			chain += stack[i];
+			chain += stack[i] + " ";
 		}
 		return chain;
 	}
@@ -30,13 +30,6 @@ public class OperandStack {
 			this.num_elems++;
 			return true;	
 		}
-	}
-	
-	
-	public void load(int _pos) {
-		Memory mm = new Memory();
-		this.stack[this.num_elems] = mm.read(_pos);;
-		this.num_elems++;
 	}
 	/**
 	 * Metodo que devuelve la ultima posicion de la pila y la elimina, si 
@@ -63,7 +56,6 @@ public class OperandStack {
 			return -1;
 		}else {
 			return this.stack[this.num_elems - 1];
-		}
-		
+		}	
 	}
 }

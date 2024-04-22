@@ -8,6 +8,7 @@ public class Memory {
 	
 	public Memory() {
 		this.size = 0;
+		this.empty = false;
 	}
 	/**
 	 * Metodo que convierte los valores de la memoria a una cadena String
@@ -16,7 +17,7 @@ public class Memory {
 		//hay que añadir tambien la posicion a parte del valor, si está vacia se pone "vacia"
 		String chain = "";
 		for (int i = 0; i < this.size; i++) {
-			chain += memory[i];
+			chain += this.memory[i] + " ";
 		}
 		return chain;
 	}
@@ -29,6 +30,13 @@ public class Memory {
 	 */
 	public boolean write(int _pos, int _value) {
 		//hay que comprobar que la posicion sea mayor a 0
+		if(_pos >= 0) {
+			if(this.memory[_pos] > this.MAX_MEMORY) {
+				this.resize(_pos);
+			}else {
+				
+			}
+		}
 		//this.resize(pos)
 		this.memory[_pos] = _value;
 		if(_pos <= this.memory.length) {
@@ -44,6 +52,9 @@ public class Memory {
 	 */
 	public Integer read(int _pos) {
 		//si no hay ningun dato en la posicion pos se devuelve -1
+		if(this.memory[_pos]== null) {
+			return -1;
+		}
 		_pos = this.memory[_pos];
 		return _pos;
 	}
