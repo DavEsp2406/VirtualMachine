@@ -33,18 +33,14 @@ public class Engine {
 			}
 		} while (!(opc.toLowerCase().equals("quit")));*/
 
-		OperandStack uwu = new OperandStack();
 		Memory owo = new Memory();
 
-		uwu.push(3);
-		uwu.push(4);
-		uwu.push(4);
-		uwu.push(4);
-		System.out.println(uwu.toString());
 
-		owo.write(1, 3);
 		owo.write(4, 6);
-		System.out.println(owo.read(1));
+		owo.write(1, 6);
+		owo.write(7, 2);
+		
+		System.out.println(owo.toString());
 	}
 
 	public void menu() {
