@@ -3,11 +3,13 @@ package main;
 import java.util.Scanner;
 
 public class Engine {
+	private ByteCodeProgram program;
+	private boolean end;
 	Scanner sc = new Scanner(System.in);
 
 	public void start() {
 		
-		/*String opc = "";
+		/*
 
 		do {
 			opc = sc.next();
@@ -33,14 +35,13 @@ public class Engine {
 			}
 		} while (!(opc.toLowerCase().equals("quit")));*/
 
-		Memory owo = new Memory();
-
-
-		owo.write(4, 6);
-		owo.write(1, 6);
-		owo.write(7, 2);
+		String opc = "";
 		
-		System.out.println(owo.toString());
+		opc = sc.next();
+		
+		CommandParser owo = new CommandParser();
+
+		System.out.println(owo.parse(opc));
 	}
 
 	public void menu() {

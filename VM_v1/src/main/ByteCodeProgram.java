@@ -29,5 +29,7 @@ public class ByteCodeProgram {
 	 * metodo runProgram: recorre todo el array y va ejecutando todas y cada una de las  
 	 * bytecode que hay en el array 
 	 * 
+	 * 
+	 * el array de bytecodes program va a tner de tamaño this.size = 1
 	 */
 }
