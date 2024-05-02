@@ -3,31 +3,49 @@ package main;
 import java.util.Arrays;
 
 public class ByteCodeParser {
-	
 	public static ByteCode parse(String s) {
-		String[] juji = s.split(" ");//se hace un split y se guarda en un array
-		System.out.println(Arrays.asList(juji));
+		String[] bcArray = s.split(" ");//se hace un split y se guarda en un array
+		ByteCode bc = null;
 		
-		switch(juji.length) {
-			case 0:
-				System.out.println("null");
-				//return new ByteCode n = detipo null l :D
-				break;
-			case 1:	
-				System.out.println("jojo");
-				break;
-			case 2:
-				System.out.println("polla");
-				break;
-			case 3:
-				System.out.println("awa");
-				break;
+		if(bcArray.length == 1) {
+			switch(bcArray[0].toLowerCase()) {
+				case "add":
+					bc = new ByteCode(ENUM_BYTECODE.ADD);
+					break;
+				case "sub":
+					bc = new ByteCode(ENUM_BYTECODE.SUB);
+					break;
+				case "mul":
+					bc = new ByteCode(ENUM_BYTECODE.MUL);
+					break;
+				case "div":
+					bc = new ByteCode(ENUM_BYTECODE.DIV);
+					break;	
+				case "out":
+					bc = new ByteCode(ENUM_BYTECODE.OUT);
+					break;
+				case "halt":
+					bc = new ByteCode(ENUM_BYTECODE.HALT);
+					break;	
+				default:
+					System.out.println("Comando inválido");
+			}
+		}else if(bcArray.length == 2) {
+			switch(bcArray[0]) {
+				case "push":
+					bc = new ByteCode(ENUM_BYTECODE.PUSH, Integer.parseInt(bcArray[1]));
+					break;
+				case "load":
+					bc = new ByteCode(ENUM_BYTECODE.LOAD, Integer.parseInt(bcArray[1]));
+					break;
+				case "store":
+					bc = new ByteCode(ENUM_BYTECODE.STORE, Integer.parseInt(bcArray[1]));
+					break;
+				default:
+					System.out.println("Comando inválido");
+			}
 		}
-		if(juji.length == 1) {
-			System.out.println("Te gusta el pene");
-		}
-		return null;
-		//devuelveel bytecode almacenado en s o null si s no representa ningun comando
+	return bc;
 	}
 	
 /*

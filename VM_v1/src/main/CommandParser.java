@@ -7,21 +7,27 @@ public class CommandParser {
 		//esta clase sirve para averiguar que comando a introducido el usuario y devolverlo 
 		//como un comando para la clase engine
 		
-		String[] comando = line.split(" ");//se hace un split y se guarda en un array
+		String[] cmdArray = line.split(" ");//se hace un split y se guarda en un array
 		
 		Command cmd = null;
 		
-		if(comando.length == 1) {
-			switch(comando[0].toLowerCase()) {
+		if(cmdArray.length == 1) {
+			switch(cmdArray[0].toLowerCase()) {
 				case "help":
 					cmd = new Command(ENUM_COMMAND.HELP);
 					break;
 				case "quit":
 					cmd = new Command(ENUM_COMMAND.QUIT);
 					break;
+				case "run":
+					cmd = new Command(ENUM_COMMAND.RUN);
+					break;
 				case "reset":
 					cmd = new Command(ENUM_COMMAND.RESET);
 					break;
+			}
+		}else if(cmdArray.length == 2) {
+			switch(cmdArray[1].toLowerCase()) {
 			}
 		}
 		
