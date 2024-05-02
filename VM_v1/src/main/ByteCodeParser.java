@@ -11,6 +11,7 @@ public class ByteCodeParser {
 		switch(juji.length) {
 			case 0:
 				System.out.println("null");
+				//return new ByteCode n = detipo null l :D
 				break;
 			case 1:	
 				System.out.println("jojo");
@@ -38,5 +39,8 @@ public class ByteCodeParser {
  * bytecode de tipo add
  * return new ByteCode(Enum.add)
  * tamaño 2 es igual que el 1, si no es 0, 1 o 2 retornamos null
+ * 
+ * 
+ * 
  */
 }

@@ -7,6 +7,8 @@ public class Engine {
 	private boolean end;
 	Scanner sc = new Scanner(System.in);
 
+	
+	
 	public void start() {
 		
 		/*
@@ -35,13 +37,7 @@ public class Engine {
 			}
 		} while (!(opc.toLowerCase().equals("quit")));*/
 
-		String opc = "";
 		
-		opc = sc.next();
-		
-		CommandParser owo = new CommandParser();
-
-		System.out.println(owo.parse(opc));
 	}
 
 	public void menu() {

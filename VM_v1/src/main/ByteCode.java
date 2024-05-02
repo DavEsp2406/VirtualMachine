@@ -19,4 +19,9 @@ public class ByteCode {
 		this.stack[this.num_elems] = mm.read(_pos);;
 		this.num_elems++;
 	}
+	
+	
+	se necesitan 2 constructoras, 1 para cuando no tiene parametro y otra para cuando si tiene
+	
+	2 metodos (getParam, getByteCode)
  */

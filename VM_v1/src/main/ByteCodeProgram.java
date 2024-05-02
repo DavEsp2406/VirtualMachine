@@ -31,5 +31,18 @@ public class ByteCodeProgram {
 	 * 
 	 * 
 	 * el array de bytecodes program va a tner de tamaño this.size = 1
+	 * 
+	 * 
+	 * atributos: array bytecodes, size(long array), numelems(numero de elemntos en array)
+	 * 
+	 * String run program: recorrer hasta numelems del array(ejecuta tods los bytecodes del array).
+	 * (devuelve un string)  this.program[i].toString
+	 * 
+	 * 
+	 * String runPromgram(CPU cpu)
+	 * 
+	 * 
+	 * crear un metodo para borrar el programa cuando se haga reset en engine. Lo que hace es borrar
+	 * todos los elementos del array 
 	 */
 }

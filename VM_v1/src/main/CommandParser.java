@@ -4,42 +4,27 @@ import java.util.Arrays;
 
 public class CommandParser {
 	public static Command parse(String line) {
+		//esta clase sirve para averiguar que comando a introducido el usuario y devolverlo 
+		//como un comando para la clase engine
 		
-		String[] cmd = line.split(" ");//se hace un split y se guarda en un array
+		String[] comando = line.split(" ");//se hace un split y se guarda en un array
 		
-		switch(cmd.length) {
-			case 0:
-				System.out.println("Error comando inválido");
-				break;
-			case 1: 
-				switch(cmd[0].toLowerCase()) {
-					case "help":
-						System.out.println("Si (づ￣ 3￣)づ");
-						break;
-					case "quit":
-						System.out.println("(∪.∪ )...zzz");
-						break;
-					case "run":
-						System.out.println("o(*￣▽￣*)ブ");
-						break;
-					case "reset":
-						System.out.println("(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧");
-						break;
-				}
-				break;
-			case 2:
-				switch(cmd[1].toLowerCase()) {
-					case "newinst":
-						System.out.println("uwu");
-						break;
-					case "replace":
-						System.out.println("uwu");
-						break;
-				}
-			break;	
-			default:
-				System.out.println("wawa");
+		Command cmd = null;
+		
+		if(comando.length == 1) {
+			switch(comando[0].toLowerCase()) {
+				case "help":
+					cmd = new Command(ENUM_COMMAND.HELP);
+					break;
+				case "quit":
+					cmd = new Command(ENUM_COMMAND.QUIT);
+					break;
+				case "reset":
+					cmd = new Command(ENUM_COMMAND.RESET);
+					break;
+			}
 		}
+		
 		
 		return null;
 	
