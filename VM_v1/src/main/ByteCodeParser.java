@@ -27,8 +27,6 @@ public class ByteCodeParser {
 				case "halt":
 					bc = new ByteCode(ENUM_BYTECODE.HALT);
 					break;	
-				default:
-					System.out.println("Comando inválido");
 			}
 		}else if(bcArray.length == 2) {
 			switch(bcArray[0]) {

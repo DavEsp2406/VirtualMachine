@@ -19,7 +19,7 @@ public class Memory {
 		String chain = "";
 		
 		if(this.empty == true) {
-			System.out.println("<Vacia>");
+			chain += "<Vacia>";
 		}else {
 			for (int i = 0; i < this.memory.length; i++) {
 				if(this.memory[i] != null) {
@@ -46,7 +46,7 @@ public class Memory {
 				this.memory[_pos] = _value;
 			}
 		}
-		return empty;	
+		return true;	
 	}
 	/**
 	 * Metodo que lee el valor de una determinada posicion

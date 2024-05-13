@@ -12,7 +12,11 @@ public class CPU {
 	}
 
 	public String toString() {
-		return null;
+		String chain = "";
+		
+		chain += "  Memoria: " + this.memoria.toString() + "\n  Pila: " + this.pila.toString();
+		
+		return chain;
 	}
 
 	public void erase() {
@@ -24,23 +28,36 @@ public class CPU {
 		return this.halt = false;
 	}
 
-	public boolean sumaPila() {
-		int n1 = pila.pop();
-		int n2 = pila.pop();
+	/*public boolean sumaPila() {
+		int n1 = this.pila.pop();
+		int n2 = this.pila.pop();
 
-		if (!(n1 == -1 && n2 == -1)) {
-			this.pila.push(n1 + n2);
+		if (!(n1 == -1 || n2 == -1)) {
+			int suma = n1 + n2;
+			this.pila.push(suma);
 			return true;
-		} else {
+		}else {
 			return false;
 		}
-	}
+			
+	}*/
+	
+	public boolean sumaPila() {
+        int num1 = this.pila.pop();
+        int num2 = this.pila.pop();
+        if (num1 == -1 || num2 == -1) {
+            return false;
+        }
+        int add = num2 + num1;
+        this.pila.push(add);
+        return true;
+    }
 
 	public boolean restaPila() {
 		int n1 = pila.pop();
 		int n2 = pila.pop();
 
-		if (!(n1 == -1 && n2 == -1)) {
+		if (!(n1 == -1 || n2 == -1)) {
 			this.pila.push(n1 - n2);
 			return true;
 		} else {
@@ -52,7 +69,7 @@ public class CPU {
 		int n1 = pila.pop();
 		int n2 = pila.pop();
 
-		if (!(n1 == -1 && n2 == -1)) {
+		if (!(n1 == -1 || n2 == -1)) {
 			this.pila.push(n1 * n2);
 			return true;
 		} else {
@@ -64,12 +81,14 @@ public class CPU {
 		int n1 = pila.pop();
 		int n2 = pila.pop();
 
-		if ((n1 != -1 || n2 != -1) || (n1 != 0 || n2 != 0)) {
-			this.pila.push(n1 / n2);
-			return true;
-		} else {
+		if (n1 == -1 || n2 == -1 || n1 == 0 || n2 == 0) {
 			return false;
 		}
+		
+		int div = n1/n2;
+		this.pila.push(div);
+		return true;
+		
 	}
 	
 	public boolean getCima() {
@@ -79,7 +98,7 @@ public class CPU {
 	}
 	
 	public boolean Halt() {
-		return this.halt == true;
+		return this.halt;
 	}
 	
 	public boolean execute(ByteCode instr) {
@@ -97,7 +116,9 @@ public class CPU {
 			}
 			break;
 		case STORE:
-			if(this.memoria.write(instr.getParam(), this.pila.pop()))
+			if(this.memoria.write(instr.getParam(), this.pila.pop())) {
+				exc = true;
+			}
 			break;
 		case ADD:
 			if(this.sumaPila()) {
@@ -125,7 +146,8 @@ public class CPU {
 			}
 			break;
 		case HALT:
-			if(this.Halt()) {
+			if(!this.Halt()) {
+				this.halt = true;
 				exc = true;
 			}
 			break;
