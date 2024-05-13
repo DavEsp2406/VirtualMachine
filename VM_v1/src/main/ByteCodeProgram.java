@@ -1,6 +1,40 @@
 package main;
 
+
 public class ByteCodeProgram {
+	public ByteCode program [];
+	public int numElems;
+	public int size;
+	
+	
+	public ByteCodeProgram() {
+		
+	}
+	
+	
+	public String runProgram(CPU cpu) {
+        String chain = "";
+        for (int i = 0; i < this.numElems; i++) {
+            if (!cpu.Halt() && cpu.execute(this.program[i])) {
+                chain = chain  + "El estado de la máquina tras ejecutar el bytecode "
+                        + this.program[i] + " es:\n\nEstado de la CPU:\n"
+                        + cpu.toString() + "\n\n";
+            } else if (!cpu.Halt()) {
+                this.program.toString();
+            }
+        }
+        cpu.erase();
+        cpu.runCPU();
+        return chain;
+    }
+	
+	
+	
+	
+	
+	
+	
+	
 //tiene array de tipo ByteCode, que mete instrucciones como push 4 add, hall,... 
 //el jony lo llama program
 	/*
@@ -40,7 +74,6 @@ public class ByteCodeProgram {
 	 * 
 	 * 
 	 * String runPromgram(CPU cpu)
-	 * 
 	 * 
 	 * crear un metodo para borrar el programa cuando se haga reset en engine. Lo que hace es borrar
 	 * todos los elementos del array 

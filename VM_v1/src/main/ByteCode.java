@@ -20,6 +20,19 @@ public class ByteCode {
 	public int getParam() {
 		return this.param;
 	}
+	
+	public String toString() {
+		String chain = "";
+
+		if (this.name == ENUM_BYTECODE.PUSH || this.name == ENUM_BYTECODE.LOAD ||
+				this.name == ENUM_BYTECODE.STORE) {
+			chain += this.getByteCode() + " " + this.getParam();
+		}else {
+			chain += this.getByteCode();
+		}
+		
+		return chain;
+	}
 }
 
 

@@ -11,7 +11,9 @@ public class CommandParser {
 		
 		Command cmd = null;
 		
-		if(cmdArray.length == 1) {
+		if(cmdArray.length == 0) {
+			return cmd;
+		}else if(cmdArray.length == 1) {
 			switch(cmdArray[0].toLowerCase()) {
 				case "help":
 					cmd = new Command(ENUM_COMMAND.HELP);
@@ -27,20 +29,20 @@ public class CommandParser {
 					break;
 			}
 		}else if(cmdArray.length == 2) {
-			switch(cmdArray[1].toLowerCase()) {
+			switch(cmdArray[0].toLowerCase()) {
+				case "newinst":
+					cmd = new Command(ENUM_COMMAND.NEWINST, ByteCodeParser.parse(cmdArray[1]));
+					break;
+				case "replace":
+					cmd = new Command(ENUM_COMMAND.REPLACE, Integer.parseInt(cmdArray[1]));
+				}
+		}else if(cmdArray.length == 3) {
+			switch(cmdArray[0].toLowerCase()) {
+			case "newinst":
+				cmd = new Command(ENUM_COMMAND.NEWINST, ByteCodeParser.parse(cmdArray[1] + " " + cmdArray[2]));
+				break;
 			}
 		}
-		
-		
-		return null;
-	
-		/*
-		 * hacer lo mismo que en la clase parser de byte code (la clase recibia un array 
-		 * y se hacia un split y luego se iba comprobado por las partes divididas) pero ahora
-		 * lo que hay que adivinar que comando se esta introduciendo. que comandos hay?
-		 * help, run, quit, si fuese longitud 2 podria ser newinst o replace y si 
-		 * tiene longitudd 3 newinst push 1
-		 */
-		
+		return cmd;
 	}
 }
