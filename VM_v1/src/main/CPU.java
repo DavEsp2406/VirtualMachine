@@ -143,32 +143,32 @@ public class CPU {
 			}
 			break;
 		case ADD:
-			if(this.sumaPila()) {
+			if(sumaPila()) {
 				exc = true;
 			}
 			break;
 		case SUB:
-			if(this.restaPila()) {
+			if(restaPila()) {
 				exc = true;
 			}
 			break;
 		case MUL:
-			if(this.mulPila()) {
+			if(mulPila()) {
 				exc = true;
 			}
 			break;
 		case DIV:
-			if(this.divPila()) {
+			if(divPila()) {
 				exc = true;
 			}
 			break;
 		case OUT:
-			if (this.getCima()) {
+			if (getCima()) {
 				exc = true;
 			}
 			break;
 		case HALT:
-			if(!this.Halt()) {
+			if(!Halt()) {
 				this.halt = true;
 				exc = true;
 			}

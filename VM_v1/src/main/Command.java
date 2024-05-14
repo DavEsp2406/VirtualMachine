@@ -57,7 +57,7 @@ public class Command {
 	public boolean execute(Engine engine) {
 		boolean ext = false;
 
-		switch (this.getCommand()) {
+		switch (getCommand()) {
 		case HELP:
 			if (engine.help()) {
 				ext = true;

@@ -45,9 +45,9 @@ public class ByteCode {
 
 		if (this.name == ENUM_BYTECODE.PUSH || this.name == ENUM_BYTECODE.LOAD ||
 				this.name == ENUM_BYTECODE.STORE) {
-			chain += this.getByteCode() + " " + this.getParam();
+			chain += getByteCode() + " " + getParam();
 		}else {
-			chain += this.getByteCode();
+			chain += getByteCode();
 		}
 		return chain;
 	}

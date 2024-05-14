@@ -40,7 +40,7 @@ public class Memory {
 		this.empty = false;
 		if(_pos >= 0) {
 			if(_pos >= this.MAX_MEMORY) {
-				this.resize(_pos);
+				resize(_pos);
 				this.memory[_pos] = _value;
 			}else {
 				this.memory[_pos] = _value;

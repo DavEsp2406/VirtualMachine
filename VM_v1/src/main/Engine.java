@@ -102,7 +102,7 @@ public class Engine {
 	 * @return true si el comando se ha ejecutado correctamente
 	 */
 	public boolean replace(int _pos) {
-		if(_pos < this.program.numElems) {
+		if(_pos <= this.program.numElems) {
 			System.out.println("Nueva instrucción");
 			ByteCode btc = ByteCodeParser.parse(this.sc.nextLine());
 			this.program.setInstructionPos(btc, _pos);
