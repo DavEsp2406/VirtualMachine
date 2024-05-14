@@ -47,7 +47,7 @@ public class OperandStack {
 	}
 	/**
 	 * Metodo que devuelve la ultima posicion de la pila y la elimina, si no hay
-	 * nada devuelve -1
+	 * nada devuelve menos uno
 	 * @return el ultimo valor de la pila
 	 */
 	public int pop() {
@@ -62,7 +62,7 @@ public class OperandStack {
 		}
 	}
 	/**
-	 * Metodo que devuelve la ultima posicion de la pila, si no hay nada devuelve -1 
+	 * Metodo que devuelve la ultima posicion de la pila, si no hay nada devuelve menos uno 
 	 * @return el ultimo valor de la pila
 	 */
 	public int getCima() {

@@ -3,10 +3,12 @@ package main;
 import java.util.Arrays;
 
 public class CommandParser {
+	/**
+	 * metodo para la construccion del comando
+	 * @param line string que mete el usuario por consola
+	 * @return del comando construido
+	 */
 	public static Command parse(String line) {
-		//esta clase sirve para averiguar que comando a introducido el usuario y devolverlo 
-		//como un comando para la clase engine
-		
 		String[] cmdArray = line.split(" ");//se hace un split y se guarda en un array
 		
 		Command cmd = null;
