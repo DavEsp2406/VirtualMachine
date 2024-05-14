@@ -1,11 +1,16 @@
 package main;
 
 public class ByteCodeProgram {
+	/**
+	 * Atributos
+	 */
 	public ByteCode program[];
 	public ByteCode incprogram[];
 	public int numElems;
 	public int size;
-
+	/**
+	 * Constructora
+	 */
 	public ByteCodeProgram() {
 		this.numElems = 0;
 		this.size = 10;
