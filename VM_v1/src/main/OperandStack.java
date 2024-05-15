@@ -22,7 +22,7 @@ public class OperandStack {
 	public String toString() {
 		String chain = "";
 		if (this.isEmpty() == true) {
-			chain += "Vacia";
+			chain += "<Vacia>";
 			return chain;
 		} else {
 			for (int i = 0; i < this.num_elems; i++) {

@@ -13,7 +13,7 @@ public class ByteCodeProgram {
 	 */
 	public ByteCodeProgram() {
 		this.numElems = 0;
-		this.size = 10;
+		this.size = 2;
 		this.program = new ByteCode[size];
 	}
 	/**
@@ -99,7 +99,6 @@ public class ByteCodeProgram {
 			if (this.program[i] != null) {
 				chain += i + ": " + this.program[i] + "\n";
 			}
-
 		}
 		return chain;
 	}

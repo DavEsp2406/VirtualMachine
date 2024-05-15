@@ -44,8 +44,6 @@ public class ByteCodeParser {
 				case "store":
 					bc = new ByteCode(ENUM_BYTECODE.STORE, Integer.parseInt(bcArray[1]));
 					break;
-				default:
-					System.out.println("Comando inválido");
 			}
 		}
 	return bc;

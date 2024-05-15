@@ -48,7 +48,8 @@ public class CPU {
         int num1 = this.pila.pop();
         int num2 = this.pila.pop();
         if (num1 == -1 || num2 == -1) {
-            return false;
+        	this.pila.push(num1);
+        	return false;
         }
         int add = num2 + num1;
         this.pila.push(add);
@@ -59,32 +60,30 @@ public class CPU {
 	 * @return de la resta de la pila
 	 */
 	public boolean restaPila() {
-		int n1 = pila.pop();
-		int n2 = pila.pop();
-
-		if (!(n1 == -1 || n2 == -1)) {
-			int sub = n1 - n2;
-			this.pila.push(sub);
-			return true;
-		} else {
-			return false;
-		}
+		int num1 = this.pila.pop();
+        int num2 = this.pila.pop();
+        if (num1 == -1 || num2 == -1) {
+        	this.pila.push(num1);
+        	return false;
+        }
+        int sub = num2 - num1;
+        this.pila.push(sub);
+        return true;
 	}
 	/**
 	 * metodo para multiplicar la pila 
 	 * @return de la multiplicacion de pila
 	 */
 	public boolean mulPila() {
-		int n1 = pila.pop();
-		int n2 = pila.pop();
-
-		if (!(n1 == -1 || n2 == -1)) {
-			int mul = n1 * n2;
-			this.pila.push(mul);
-			return true;
-		} else {
-			return false;
-		}
+		int num1 = this.pila.pop();
+        int num2 = this.pila.pop();
+        if (num1 == -1 || num2 == -1) {
+        	this.pila.push(num1);
+        	return false;
+        }
+        int mul = num2 * num1;
+        this.pila.push(mul);
+        return true;
 	}
 	/**
 	 * metodo para dividir la pila
@@ -95,9 +94,9 @@ public class CPU {
 		int n2 = pila.pop();
 
 		if (n1 == -1 || n2 == -1 || n1 == 0 || n2 == 0) {
+			this.pila.push(n1);
 			return false;
 		}
-		
 		int div = n1/n2;
 		this.pila.push(div);
 		return true;

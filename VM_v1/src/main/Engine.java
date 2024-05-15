@@ -10,7 +10,7 @@ public class Engine {
 	private Command cmd;
 	private boolean end;
 	private CPU cpu;
-	Scanner sc;
+	public Scanner sc;
 	/**
 	 * Constructora
 	 */
@@ -36,10 +36,10 @@ public class Engine {
                     System.out.println("Comienza la ejecución de " + this.cmd.getCommand());
                 }
                 if (!this.cmd.execute(this)) {
-                    System.err.println("Error: Ejecución incorrecta del comando.\r\n");
+                    System.err.println("Error: Ejecución incorrecta del comando.\n");
                 }
             } else {
-                System.err.println("Error: Comando incorrecto.\r\n");
+                System.err.println("Error: Comando incorrecto.\n");
             }
         } while (!this.end); 
     }
@@ -102,7 +102,7 @@ public class Engine {
 	 * @return true si el comando se ha ejecutado correctamente
 	 */
 	public boolean replace(int _pos) {
-		if(_pos <= this.program.numElems) {
+		if(_pos < this.program.numElems) {
 			System.out.println("Nueva instrucción");
 			ByteCode btc = ByteCodeParser.parse(this.sc.nextLine());
 			this.program.setInstructionPos(btc, _pos);
