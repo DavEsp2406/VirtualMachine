@@ -13,8 +13,7 @@ A continuación se muestran los comandos básicos para su ejecución:
   -RUN: Ejecuta el programa actual. En caso de que se produzca un error de ejecución,
     avisa al usuario mediante un mensaje.
 
-  -RESET: Inicializa el programa actual eliminando todas las instrucciones almacena-
-    das.
+  -RESET: Inicializa el programa actual eliminando todas las instrucciones almacenadas.
 
   -REPLACE N: Solicita al usuario una nueva instrucción BC, que en caso de ser correcta
     reemplazará a la instrucción bytecode número N del programa.
